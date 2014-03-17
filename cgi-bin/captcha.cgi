@@ -14,7 +14,6 @@
 #
 # note we do not actually touch user input at all.
 
-
 PUBLIC_KEY="XXXXXXXXXXXXXyyyyyyyyyyyyyyyyyyyyyyyyyyy"
 PRIVATE_KEY="XXXXXXXXXXXXXzzzzzzzzzzzzzzzzzzzzzzzzzz"
 
@@ -25,7 +24,12 @@ SUCCESS="${CONTEXT_DOCUMENT_ROOT}/recaptcha_verified.tmplt"
 FAIL="${CONTEXT_DOCUMENT_ROOT}/recaptcha_challenge.tmplt"
 
 # name of the content you are serving to the not-bots
-CONTENT=whatever.typ # EDIT ME 
+# EDIT ME 
+CONTENT=whatever.typ
+		
+# making a more specific constant than 'recaptchatmp' 
+# could help with cleanup 
+CONST="recaptchatmp"
 
 echo Content-type: text/html
 echo -e "\r"
@@ -34,28 +38,23 @@ if  [ ${REQUEST_METHOD} == 'POST' ] ; then
 	#	ahh google ... 
 	#	produce different param names in "google.com/recaptcha/api/challenge" 
 	#	than are consumed in "google.com/recaptcha/api/verify"
-	#	
-	#	so instead of simply passing them on
-	#	we get to fix the field names first
-	#   ... I'm sure it is brilliant choice from some point of view
-	
+	#	so instead of simply passing them along we get to fix the field names first.
 
 	VERIFY_ME="$(sed 's/recaptcha_//g;s/_field//g')&remoteip=${REMOTE_ADDR}&privatekey=${PRIVATE_KEY}"		
 	RESULT=`curl -s --data "${VERIFY_ME}"  https://www.google.com/recaptcha/api/verify`
-		
-	if [ ${RESULT%%?success} == "true" ] ; then		
+
+	if [ ${RESULT%%?success} == "true" ] ; then
 		# avoid leaking the actual content filename
-		HASH="tmp`date | md5sum`"     # mktmp or uuid might be cleaner if available 
-		ALIAS="${HASH%%  -*}.${CONTENT##*\.}"  # give the alias the same suffix as the content      		
+		# mktmp or uuid might be cleaner if available 
+		ANON="${CONST}`date | md5sum`"    
+		# give the alias the same suffix as the content 								
+		ALIAS="${ANON%%  -*}.${CONTENT##*\.}"       		
 		ln -s ${CONTEXT_DOCUMENT_ROOT}/${CONTENT} ${CONTEXT_DOCUMENT_ROOT}/${ALIAS}
-	
 		. "${SUCCESS}"
-		
 		# unlinking the alias on exit with trap is proving to be too soon
 		#trap 'unlink ${CONTEXT_DOCUMENT_ROOT}/${ALIAS}' 0 1 2 3 15; # disapear the temporary link 
-		# so unlink any from a day or more ago  (mostly for if you don't have cron)
-		find ${CONTEXT_DOCUMENT_ROOT} -type l -name tmp\*.${CONTENT##*\.} -ctime +1 -exec unlink {} \; 			
-	
+		# so find and unlink any from a day or more ago  
+		# see: last line  (or use cron)
 	else 
 		ERROR_CODE="${RESULT##false?}"
 		APOLOGIES="Hmmm, <br>Google returned your last submision with the hint: <br><b>'${ERROR_CODE}</b>'"
@@ -64,6 +63,6 @@ if  [ ${REQUEST_METHOD} == 'POST' ] ; then
 else
 	. "${FAIL}"
 fi
-
-find ${CONTEXT_DOCUMENT_ROOT} -type l -name tmp\*.${CONTENT##*\.}" -ctime +1 -exec unlink {} \; 
+# so unlink any from a day or more ago  (mostly for if you don't have cron)
+find ${CONTEXT_DOCUMENT_ROOT} -type l -name ${CONST}\*.${CONTENT##*\.} -ctime +1 -exec unlink {} \;
 
