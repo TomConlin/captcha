@@ -8,7 +8,7 @@ cat << EOD
    sets k=\$PUBLIC_KEY for the challenged
    
    Please do edit to fit your needs 
-   while leaving the important bits intact.
+   whilst leaving the important bits intact.
 -->	
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
