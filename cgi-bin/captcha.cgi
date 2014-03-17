@@ -1,3 +1,4 @@
+{% highlight shell %}
 #!/usr/bin/env bash
 
 # implement a bare bones recaptcha
@@ -65,4 +66,4 @@ else
 fi
 # so unlink any from a day or more ago  (mostly for if you don't have cron)
 find ${CONTEXT_DOCUMENT_ROOT} -type l -name ${CONST}\*.${CONTENT##*\.} -ctime +1 -exec unlink {} \;
-
+{% endhighlight %}
