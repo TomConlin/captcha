@@ -6,11 +6,11 @@
 #		- proof positive pass
 #		- proof negative repeat w/new challenge	
 
-# These are the keys 
-#	*For the domain the script is running at* 
-# they provided by Google at:
-#	https://www.google.com/recaptcha/admin/create
-# yours *will* be different
+# These will be the keys 
+# For the domain the script is running at.
+# They will be provided by Google at:
+# https://www.google.com/recaptcha/admin/create
+# yours will necessarily be different
 #
 # note we do not actually touch user input at all.
 
@@ -36,7 +36,7 @@ echo -e "\r"
 
 if  [ ${REQUEST_METHOD} == 'POST' ] ; then
 	#	ahh google ... 
-	#	produce different param names in "google.com/recaptcha/api/challenge" 
+	#	produce different parameter names in "google.com/recaptcha/api/challenge" 
 	#	than are consumed in "google.com/recaptcha/api/verify"
 	#	so instead of simply passing them along we get to fix the field names first.
 
@@ -52,12 +52,12 @@ if  [ ${REQUEST_METHOD} == 'POST' ] ; then
 		ln -s ${CONTEXT_DOCUMENT_ROOT}/${CONTENT} ${CONTEXT_DOCUMENT_ROOT}/${ALIAS}
 		. "${SUCCESS}"
 		# unlinking the alias on exit with trap is proving to be too soon
-		#trap 'unlink ${CONTEXT_DOCUMENT_ROOT}/${ALIAS}' 0 1 2 3 15; # disapear the temporary link 
+		#trap 'unlink ${CONTEXT_DOCUMENT_ROOT}/${ALIAS}' 0 1 2 3 15;
 		# so find and unlink any from a day or more ago  
 		# see: last line  (or use cron)
 	else 
 		ERROR_CODE="${RESULT##false?}"
-		APOLOGIES="Hmmm, <br>Google returned your last submision with the hint: <br><b>'${ERROR_CODE}</b>'"
+		APOLOGIES="Hmmm, <br>Google returned your last submission with the hint: <br><b>'${ERROR_CODE}</b>'"
 		. "${FAIL}"
 	fi
 else
