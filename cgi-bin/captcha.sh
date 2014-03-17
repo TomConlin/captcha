@@ -1,8 +1,5 @@
 #! /bin/bash
 
-
-#!/usr/bin/env bash  
-
 # implement a bare bones recaptcha
 #	o present challenge page on GET
 #	o proof results on POST 
