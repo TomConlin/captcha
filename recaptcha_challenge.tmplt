@@ -3,8 +3,9 @@ cat << EOD
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 	
 <!--
-   processed by recaptcha_verify.cgi to 
-   set k=\$PUBLIC_KEY for the challenged
+   processed by captcha.cgi|captcha.sh 
+   
+   sets k=\$PUBLIC_KEY for the challenged
    
    Please do edit to fit your needs 
    while leaving the important bits intact.
@@ -37,8 +38,8 @@ ${APOLOGIES}
 		</noscript>	
 		<!-- although changing 
 			recaptcha_challenge_field & recaptcha_response_field  to challenge & response 
-			(required by their verify) is easy in the noscript version 
-			we still need to address when they arrive from google.com/recaptcha/api/challenge
+			(required by their verify) is easy in this noscript version 
+			we still need to address the issue when they arrive from google.com/recaptcha/api/challenge
 			so leaving them alone here
 		-->	
 		<input type="submit" name="button" value="I'm for real.">
