@@ -29,7 +29,7 @@ Why?
 Choosing a language to import a library implementing a framework to replace 
 barely a half page "if ..then ... else redirect"  just rubs me the wrong way.
 
-Why not? 
+Why not?  
 I am not a security expert, so I'm interested to hear any theories with proofs 
 on how this could be vulnerable. 
 
