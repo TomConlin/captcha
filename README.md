@@ -29,18 +29,18 @@ Edit captcha.cgi,  at minimum you need to
 	If you really want some requirements please see the next section.
 
 ##Alternatives:
- *[PHP](https://code.google.com/p/recaptcha/downloads/list?q=label:phplib-Latest)
- *[.NET](https://code.google.com/p/recaptcha/downloads/detail?name=recaptcha-dotnet-1.0.5.0-binary.zip&can=2&q=label%3Aaspnetlib-Latest)
- *[Java](https://code.google.com/p/recaptcha/downloads/detail?name=recaptcha4j-0.0.7.zip&can=2&q=label%3Ajava-Latest)
- *[Perl](http://search.cpan.org/CPAN/authors/id/P/PH/PHRED/Captcha-reCAPTCHA-0.97.tar.gz)
- ** [CPAN is kindly transparent on dependencies](http://deps.cpantesters.org/?module=Captcha%3A%3AreCAPTCHA;perl=latest)
- *[Python](https://pypi.python.org/pypi/recaptcha-client?)
- *[Ruby](https://bitbucket.org/mml/ruby-recaptcha/wiki/Home)
- *[Ruby](https://github.com/ambethia/recaptcha/)
- *[Ruby](https://github.com/achiu/rack-recaptcha)
- *[ColdFusion](http://recaptcha.riaforge.org/)
- *[]()
- *([Google's forum for people having problems with these...](https://groups.google.com/forum/#!forum/recaptcha)
+*[PHP](https://code.google.com/p/recaptcha/downloads/list?q=label:phplib-Latest)  
+*[.NET](https://code.google.com/p/recaptcha/downloads/detail?name=recaptcha-dotnet-1.0.5.0-binary.zip&can=2&q=label%3Aaspnetlib-Latest)  
+*[Java](https://code.google.com/p/recaptcha/downloads/detail?name=recaptcha4j-0.0.7.zip&can=2&q=label%3Ajava-Latest)  
+*[Perl](http://search.cpan.org/CPAN/authors/id/P/PH/PHRED/Captcha-reCAPTCHA-0.97.tar.gz)  
+** [CPAN is kindly transparent on dependencies](http://deps.cpantesters.org/?module=Captcha%3A%3AreCAPTCHA;perl=latest)  
+*[Python](https://pypi.python.org/pypi/recaptcha-client?)  
+*[Ruby](https://bitbucket.org/mml/ruby-recaptcha/wiki/Home)  
+*[Ruby](https://github.com/ambethia/recaptcha/)  
+*[Ruby](https://github.com/achiu/rack-recaptcha)  
+*[ColdFusion](http://recaptcha.riaforge.org/)  
+*[]()  
+*([Google's forum for people having problems with these...](https://groups.google.com/forum/#!forum/recaptcha)  
 
 ##Why?  
   Maintaining a language 
