@@ -30,6 +30,10 @@ FAIL="${TMPLT_PATH}/recaptcha_challenge.tmplt"
 # EDIT ME
 CONTENT_PATH=${TMPLT_PATH} 
 CONTENT=whatever.typ
+
+
+# change to whatever constant string you want
+SALT=${HOST}
 		
 # making a more specific constant than 'recaptchatmp' 
 # could help with cleanup 
@@ -44,7 +48,14 @@ if  [ ${REQUEST_METHOD} == 'POST' ] ; then
 	#	than are consumed in "google.com/recaptcha/api/verify"
 	#	so instead of simply passing them along we get to fix the field names first.
 
-	VERIFY_ME="$(sed 's/recaptcha_//g;s/_field//g')&remoteip=${REMOTE_ADDR}&privatekey=${PRIVATE_KEY}"		
+	# although I support offering information they need to counter abuse
+	# I do not support giving them YOU on a silver platter. 
+	# OBFuscate remote IP
+		
+	OBF=`echo "${REMOTE_ADDR}${SALT}" | md5sum`
+	OBFIP="echo $((0x`echo ${OBF}|cut -c1-2`)).$((0x`echo ${OBF}|cut -c3-4`)).$((0x`echo ${OBF}|cut -c5-6`)).$((0x`echo ${OBF}|cut -c7-8`))"
+
+	VERIFY_ME="$(sed 's/recaptcha_//g;s/_field//g')&remoteip=${OBFIP}&privatekey=${PRIVATE_KEY}"		
 	RESULT=`curl -s --data "${VERIFY_ME}"  https://www.google.com/recaptcha/api/verify`
 
 	if [ ${RESULT%%?success} == "true" ] ; then
