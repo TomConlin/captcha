@@ -8,7 +8,7 @@ and evaluating the response to determine whether or not to display your content.
 Google offers ceptcha as a service and uses the work done to digitize books
 and street view images.  
 
-##Usage
+##Usage:
 Put the (possibly edited) template files in some directory 
 outside webroot (perhaps along side the content page you are protecting)
 The "template" files are just plain HTML with embedded shell variables wrapped in heredoc.
@@ -25,22 +25,22 @@ Edit captcha.cgi,  at minimum you need to
 	and path and name of the content to serve when a recaptcha is solved. 
 
 
-##Requirements
+##Requirements:
 	If you really want some requirements please see the next section.
 
-##Alternatives
-	*[PHP](https://code.google.com/p/recaptcha/downloads/list?q=label:phplib-Latest)
-	*[.NET](https://code.google.com/p/recaptcha/downloads/detail?name=recaptcha-dotnet-1.0.5.0-binary.zip&can=2&q=label%3Aaspnetlib-Latest)
-	*[Java](https://code.google.com/p/recaptcha/downloads/detail?name=recaptcha4j-0.0.7.zip&can=2&q=label%3Ajava-Latest)
-	*[Perl](http://search.cpan.org/CPAN/authors/id/P/PH/PHRED/Captcha-reCAPTCHA-0.97.tar.gz)
-		* [CPAN is kindly transparent on dependencies](http://deps.cpantesters.org/?module=Captcha%3A%3AreCAPTCHA;perl=latest)
-	*[Python](https://pypi.python.org/pypi/recaptcha-client?)
-	*[Ruby](https://bitbucket.org/mml/ruby-recaptcha/wiki/Home)
-	*[Ruby](https://github.com/ambethia/recaptcha/)
-	*[Ruby](https://github.com/achiu/rack-recaptcha)
-	*[ColdFusion](http://recaptcha.riaforge.org/)
-	*[]()
-	*[Google's forum for people having problems with these...](https://groups.google.com/forum/#!forum/recaptcha)
+##Alternatives:
+ *[PHP](https://code.google.com/p/recaptcha/downloads/list?q=label:phplib-Latest)
+ *[.NET](https://code.google.com/p/recaptcha/downloads/detail?name=recaptcha-dotnet-1.0.5.0-binary.zip&can=2&q=label%3Aaspnetlib-Latest)
+ *[Java](https://code.google.com/p/recaptcha/downloads/detail?name=recaptcha4j-0.0.7.zip&can=2&q=label%3Ajava-Latest)
+ *[Perl](http://search.cpan.org/CPAN/authors/id/P/PH/PHRED/Captcha-reCAPTCHA-0.97.tar.gz)
+ ** [CPAN is kindly transparent on dependencies](http://deps.cpantesters.org/?module=Captcha%3A%3AreCAPTCHA;perl=latest)
+ *[Python](https://pypi.python.org/pypi/recaptcha-client?)
+ *[Ruby](https://bitbucket.org/mml/ruby-recaptcha/wiki/Home)
+ *[Ruby](https://github.com/ambethia/recaptcha/)
+ *[Ruby](https://github.com/achiu/rack-recaptcha)
+ *[ColdFusion](http://recaptcha.riaforge.org/)
+ *[]()
+ *([Google's forum for people having problems with these...](https://groups.google.com/forum/#!forum/recaptcha)
 
 ##Why?  
   Maintaining a language 
@@ -51,16 +51,9 @@ Edit captcha.cgi,  at minimum you need to
   is just wrong.
 
 
-##Notes: 
+##Notes:  
  * This tool does not send the IP of people using it to Google but does send a probably unique an alternative (hashed) IP instead.
-
  * This tool neither repeats nor reveals the name of the document served, thus a bookmark is only valid till the symlink is deleted.
- 
- * 
-=======
-Why?  
-Choosing a language to import a library implementing a framework to replace 
-barely a half page "if ..then ... else redirect"  just rubs me the wrong way.
 
 Why not?  
 I am not a security expert, so I'm interested to hear testable theories
