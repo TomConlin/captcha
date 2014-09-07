@@ -17,14 +17,18 @@
 PUBLIC_KEY="XXXXXXXXXXXXXyyyyyyyyyyyyyyyyyyyyyyyyyyy"
 PRIVATE_KEY="XXXXXXXXXXXXXzzzzzzzzzzzzzzzzzzzzzzzzzz"
 
+# Path to the templates (move outside web root for more security)
+TMPLT_PATH="${CONTEXT_DOCUMENT_ROOT}"
+
 # what to serve if captcha is verified
-SUCCESS="${CONTEXT_DOCUMENT_ROOT}/recaptcha_verified.tmplt"
+SUCCESS="${TMPLT_PATH}/recaptcha_verified.tmplt"
 
 #what to serve if the captcha has not been verified
-FAIL="${CONTEXT_DOCUMENT_ROOT}/recaptcha_challenge.tmplt"
+FAIL="${TMPLT_PATH}/recaptcha_challenge.tmplt"
 
-# name of the content you are serving to the not-bots
-# EDIT ME 
+# path to, and name of the content you are serving to the not-bots
+# EDIT ME
+CONTENT_PATH=${TMPLT_PATH} 
 CONTENT=whatever.typ
 
 
