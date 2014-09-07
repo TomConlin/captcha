@@ -26,7 +26,7 @@ Edit captcha.cgi,  at minimum you need to
 
 
 ##Requirements:
-	If you really want some requirements please see the next section.
+If you really want some requirements please see the next section.
 
 ##Alternatives:
 *[PHP](https://code.google.com/p/recaptcha/downloads/list?q=label:phplib-Latest)  
