@@ -1,18 +1,19 @@
-README.captcha
+#captcha
 
-Dead simple plugin-less  library-less framework-less filter for online content.
+Dead simple plugin-less  library-less framework-less filter for online content.  
 
-You have something you want to make available but discourage abuse 
-so you use a reCaptcha, which is just generating a form and evaluating the 
-response to determine whether or not to display the content. 
-Google offers this as a service and uses the work done to digitize books
+You have something you want to make web accessible but discourage abuse 
+so you use a reCaptcha, which is just generating a annoying form 
+and evaluating the response to determine whether or not to display your content. 
+Google offers ceptcha as a service and uses the work done to digitize books
 and street view images.  
 
-To use put the (possibly edited) template files in the web directory 
+##Usage
+Put the (possibly edited) template files in the web directory 
 you are using (probably along side the content page you are protecting)
 
 Put the captcha.cgi where it can be executed by your web server 
-probably under cgi-bin. 
+probably under cgi-bin.   
 
 Edit captcha.cgi,  at minimum you need to 
 	add your Google recaptcha keys for_the_host_the_script_is_served 
@@ -25,12 +26,35 @@ Edit captcha.cgi,  at minimum you need to
 The "template" files are just plain HTML with embedded shell variables wrapped in heredoc.
 
 
-Why?  
-Choosing a language to import a library implementing a framework to replace 
-barely a half page "if ..then ... else redirect"  just rubs me the wrong way.
+##Requirements
+	If you really want some requirements please see the next section.
 
-Why not?  
-I am not a security expert, so I'm interested to hear any theories with proofs 
-on how this could be vulnerable. 
+##Alternatives
+	*[PHP](https://code.google.com/p/recaptcha/downloads/list?q=label:phplib-Latest)
+	*[.NET](https://code.google.com/p/recaptcha/downloads/detail?name=recaptcha-dotnet-1.0.5.0-binary.zip&can=2&q=label%3Aaspnetlib-Latest)
+	*[Java](https://code.google.com/p/recaptcha/downloads/detail?name=recaptcha4j-0.0.7.zip&can=2&q=label%3Ajava-Latest)
+	*[Perl](http://search.cpan.org/CPAN/authors/id/P/PH/PHRED/Captcha-reCAPTCHA-0.97.tar.gz)
+		* [CPAN is kindly transparent on dependencies](http://deps.cpantesters.org/?module=Captcha%3A%3AreCAPTCHA;perl=latest)
+	*[Python](https://pypi.python.org/pypi/recaptcha-client?)
+	*[Ruby](https://bitbucket.org/mml/ruby-recaptcha/wiki/Home)
+	*[Ruby](https://github.com/ambethia/recaptcha/)
+	*[Ruby](https://github.com/achiu/rack-recaptcha)
+	*[ColdFusion](http://recaptcha.riaforge.org/)
+	*[]()
+	*[Google's forum for people having problems with these...](https://groups.google.com/forum/#!forum/recaptcha)
+
+##Why?  
+  Maintaining a language 
+  to import a library or framework 
+  to wrap a "Public Web API" (read as "fetch webpage") 
+  to replace barely a half page of 
+  `if okay then hereyago else goaway` 
+  is just wrong.
 
 
+##Notes: 
+ * This tool does not send the IP of people using it to Google but does send a probably unique an alternative (hashed) IP instead.
+
+ * This tool neither repeats nor reveals the name of the document served, thus a bookmark is only valid till the symlink is deleted.
+ 
+ * 
