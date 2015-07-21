@@ -5,7 +5,7 @@ Dead simple plugin-less  library-less framework-less filter for online content.
 You have something you want to make web accessible but discourage abuse 
 so you use a reCaptcha, which is just generating a annoying form 
 and evaluating the response to determine whether or not to display your content. 
-Google offers ceptcha as a service and uses the work done to digitize books
+Google offers captcha as a service and uses the work done to digitize books
 and street view images.  
 
 ##Usage:
